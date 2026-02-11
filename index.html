@@ -15,15 +15,23 @@
     </header>
 
     <main>
+      <!-- TASKS SECTION -->
       <section>
-        <ul>
+        <ul id="task-list">
           <!-- TODO: INSERT li elements here with JS -->
-          <li>Task 1</li>
-          <li>Task 2</li>
-          <li>Task 3</li>
+          <li>
+            <input type="checkbox" id="task-1" />
+            <label for="task-1">Task 1</label>
+          </li>
+
+          <li>
+            <label for="task-1">Task 2</label>
+            <input type="checkbox" id="task-2" />
+          </li>
         </ul>
       </section>
 
+      <!-- FORM SECTION -->
       <section class="form-block hidden" id="form-block">
         <form action="">
           <input type="text" placeholder="Enter your task here..." />
