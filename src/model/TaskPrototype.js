@@ -18,23 +18,25 @@ TaskPrototype.prototype.toHTMLElement = function () {
   checkBox.type = "checkbox";
   checkBox.id = `task-${this.id}`;
 
-  if (this.state === "COMPLETED") {
-    checkBox.checked = true;
-  }
+  checkBox.addEventListener("click", () => {
+    this.state === "COMPLETED" ? this.state = "PENDING" : this.state = "COMPLETED";
+    console.log(this)
+  });
 
   // Label element
   const label = document.createElement("label");
   label.htmlFor = `task-${this.id}`;
 
-  //? Weird Behaviour
-  const textName = document.createTextNode(" " + this.name + " - ");
+  // //? Weird Behaviour
+  // const textName = document.createTextNode(" " + this.name + " - ");
+  label.textContent = ` ${this.name} - `;
 
   const emDescription = document.createElement("em");
   emDescription.className = "description";
   emDescription.textContent = this.description;
 
   // Build label
-  label.appendChild(textName);
+  // label.appendChild(textName);
   label.appendChild(emDescription);
 
   // Build li

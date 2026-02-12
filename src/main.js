@@ -2,6 +2,7 @@
 // ! net::ERR_ABORTED 404 (Not Found)
 import { TaskPrototype } from "./model/TaskPrototype.js";
 // import { TaskClass } from "./model/TaskClass.js";
+// Regex code: ^.{3,}$
 
 const taskArray = [];
 
@@ -34,7 +35,7 @@ function submitTask(event) {
   const newTaskObj = new TaskPrototype(taskName, taskDescription);
   const taskHTMLElement = newTaskObj.toHTMLElement();
   console.log(taskHTMLElement);
-  
+
   const taskList = document.querySelector("#task-list");
   taskList.appendChild(taskHTMLElement);
 

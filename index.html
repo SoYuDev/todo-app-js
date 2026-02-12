@@ -24,11 +24,12 @@
 
       <!-- FORM SECTION -->
       <section class="form-section hidden" id="form-section">
-
         <form action="" id="form-task">
           <label for="form-task__input-name">Task Name</label>
           <input
             type="text"
+            minlength="3"
+            maxlength="20"
             placeholder="Enter your task here..."
             id="form-task__input-name"
           />
@@ -38,10 +39,9 @@
             placeholder="Enter your Description here..."
             id="form-task__input-desc"
           />
-          <br>
+          <br />
           <button type="submit">Register Task</button>
         </form>
-        
       </section>
 
       <button id="btn-toggle-form">Toggle Form</button>

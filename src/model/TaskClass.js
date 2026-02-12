@@ -1,6 +1,7 @@
 let count = 0;
 export class TaskClass {
   constructor(name, description) {
+    count++;
     this.id = count;
     this.name = name;
     this.description = description;
