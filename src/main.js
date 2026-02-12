@@ -1,5 +1,7 @@
-import { TaskPrototype } from "./model/TaskPrototype";
-import { TaskClass } from "./model/TaskClass";
+// ! If we don't put the file extension it might give the error:
+// ! net::ERR_ABORTED 404 (Not Found)
+import { TaskPrototype } from "./model/TaskPrototype.js";
+// import { TaskClass } from "./model/TaskClass.js";
 
 const taskArray = [];
 
@@ -8,6 +10,7 @@ const taskList = document.querySelector("#task-list");
 const btnToggleForm = document.getElementById("btn-toggle-form");
 
 const formInputName = document.querySelector("#task-name");
+const formInputDescription = document.querySelector("#task-desc")
 
 // EVENTS
 btnToggleForm.addEventListener("click", toggleForm);
@@ -26,9 +29,10 @@ function submitTask(event) {
   event.preventDefault();
 
   const taskName = formInputName.value;
+  const taskDescription = formInputDescription.value
   console.log(taskName);
 
-  const newTaskObj = new TaskPrototype(taskName, "Default description");
+  const newTaskObj = new TaskPrototype(taskName, taskDescription);
   const taskHTMLElement = newTaskObj.toHTMLElement();
   console.log(taskHTMLElement);
   taskList.appendChild(taskHTMLElement);
