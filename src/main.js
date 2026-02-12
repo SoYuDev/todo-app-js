@@ -32,11 +32,16 @@ function submitTask(event) {
   const formInputName = document.querySelector("#form-task__input-name");
   const formInputDescription = document.querySelector("#form-task__input-desc");
 
+  const errorMsg = document.querySelector("#name-error-msg");
+
   const taskName = formInputName.value;
   const taskDescription = formInputDescription.value;
 
   if (regex.test(taskName)) {
     formInputName.style.backgroundColor = "white";
+    formInputName.style.border = "";
+
+    errorMsg.textContent = "";
     const newTaskObj = new TaskPrototype(taskName, taskDescription);
     const taskHTMLElement = newTaskObj.toHTMLElement();
 
@@ -52,9 +57,9 @@ function submitTask(event) {
     // Cleans the form
     taskForm.reset();
   } else {
-    alert("Task name must have at least 3 characters");
     formInputName.style.backgroundColor = "#fff6f6";
     formInputName.style.border = "2px solid red";
+    errorMsg.textContent = " Task name must have at least 3 characters";
   }
 }
 

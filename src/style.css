@@ -94,3 +94,9 @@ input[type="checkbox"]:checked + label {
   color: tomato;
   text-decoration: line-through;
 }
+
+.name-error-msg {
+  color: red;
+  margin-top: 4px;
+  display: block;
+}
