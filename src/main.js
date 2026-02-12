@@ -1,8 +1,8 @@
 // ! If we don't put the file extension it might give the error:
 // ! net::ERR_ABORTED 404 (Not Found)
 import { TaskPrototype } from "./model/TaskPrototype.js";
-// import { TaskClass } from "./model/TaskClass.js";
-// Regex code: ^.{3,}$
+
+const regex = /^.{3,}$/;
 
 const taskArray = [];
 
@@ -30,18 +30,22 @@ function submitTask(event) {
 
   const taskName = formInputName.value;
   const taskDescription = formInputDescription.value;
-  console.log(taskName);
 
-  const newTaskObj = new TaskPrototype(taskName, taskDescription);
-  const taskHTMLElement = newTaskObj.toHTMLElement();
-  console.log(taskHTMLElement);
+  if (regex.test(taskName)) {
+    formInputName.style.backgroundColor = "white";
+    const newTaskObj = new TaskPrototype(taskName, taskDescription);
+    const taskHTMLElement = newTaskObj.toHTMLElement();
 
-  const taskList = document.querySelector("#task-list");
-  taskList.appendChild(taskHTMLElement);
+    const taskList = document.querySelector("#task-list");
+    taskList.appendChild(taskHTMLElement);
 
-  taskArray.push(newTaskObj);
-  console.log(taskArray);
+    taskArray.push(newTaskObj);
+    console.log(taskArray);
 
-  // Cleans the form
-  taskForm.reset();
+    // Cleans the form
+    taskForm.reset();
+  } else {
+    alert("Task name must have at least 3 characters");
+    formInputName.style.backgroundColor = "red";
+  }
 }
