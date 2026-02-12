@@ -5,12 +5,8 @@ import { TaskPrototype } from "./model/TaskPrototype.js";
 
 const taskArray = [];
 
-const taskForm = document.querySelector("#form-create-task");
-const taskList = document.querySelector("#task-list");
+const taskForm = document.querySelector("#form-task");
 const btnToggleForm = document.getElementById("btn-toggle-form");
-
-const formInputName = document.querySelector("#task-name");
-const formInputDescription = document.querySelector("#task-desc")
 
 // EVENTS
 btnToggleForm.addEventListener("click", toggleForm);
@@ -28,13 +24,18 @@ function submitTask(event) {
   // Prevents the page to be refreshed
   event.preventDefault();
 
+  const formInputName = document.querySelector("#form-task__input-name");
+  const formInputDescription = document.querySelector("#form-task__input-desc");
+
   const taskName = formInputName.value;
-  const taskDescription = formInputDescription.value
+  const taskDescription = formInputDescription.value;
   console.log(taskName);
 
   const newTaskObj = new TaskPrototype(taskName, taskDescription);
   const taskHTMLElement = newTaskObj.toHTMLElement();
   console.log(taskHTMLElement);
+  
+  const taskList = document.querySelector("#task-list");
   taskList.appendChild(taskHTMLElement);
 
   taskArray.push(newTaskObj);
